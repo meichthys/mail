@@ -111,7 +111,7 @@ class IspDb {
 		);
 	}
 
-	private function mapSocketTypeToSecurity($type): string {
+	private function mapSocketTypeToSecurity(string $type): string {
 		$lowerType = strtolower($type);
 		if ($lowerType === 'ssl') {
 			return 'ssl';
@@ -148,11 +148,6 @@ class IspDb {
 		);
 	}
 
-	/**
-	 * @param string $domain
-	 * @param bool $tryMx
-	 * @return array
-	 */
 	public function query(string $domain, Horde_Mail_Rfc822_Address $email, bool $tryMx = true): ?Configuration {
 		$this->logger->debug("IsbDb: querying <$domain>");
 
